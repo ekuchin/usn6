@@ -1,10 +1,9 @@
 import russianDate from './util/russianDate';
 import { operationType } from './entity/Operation';
 
-import {data} from '../data/2024'
-import {requiredPayment} from '../data/2024'
+import {data, requiredPayment} from '../data/2025';
 
-const currentYear:string = '2024'
+const currentYear:string = '2025'
 
 function quarter(stringDate:string):number{
     if (Date.parse(stringDate)>=Date.parse(russianDate('01.10.'+currentYear))){return 3}
