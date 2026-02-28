@@ -79,6 +79,9 @@ for (let index = 0; index < data.length; index++) {
                 taxTotal[i] += element._amount;
             }
         }
+        else {
+            taxTotal[3] += element._amount;
+            }
     }
 }
 
