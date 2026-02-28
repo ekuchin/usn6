@@ -81,7 +81,7 @@ for (let index = 0; index < data.length; index++) {
         }
         else {
             taxTotal[3] += element._amount;
-            }
+        }
     }
 }
 

@@ -1,14 +1,13 @@
-cls
+@echo off
+setlocal
 
-set filename="preConverted.ts"
-IF EXIST %filename% del %filename%
+set INPUT_ZIP=bank_statement\statement_28022026_0063.zip
+set OUTPUT_TS=data\2026.ts
+rem set DRY_RUN=1
 
-echo type operation = [string, string, string, string, string^|undefined, string, string, string^|number, number^|string^|undefined, string^|number^|undefined, string] >> %filename%
-echo let data:operation[];>> %filename%
-echo: >> %filename%
-echo export default data = [>> %filename%
+cmd /c "set INPUT_ZIP=%INPUT_ZIP%&& set OUTPUT_TS=%OUTPUT_TS%&& tsx .\src\convertStatementZip.ts"
+set "EXIT_CODE=%ERRORLEVEL%"
+if not "%EXIT_CODE%"=="0" exit /b %EXIT_CODE%
 
-FOR /F "tokens=*" %%i IN (statement.ts) DO @ECHO [%%i], >> %filename%
-echo ] >> %filename%
-
-tsx ./src/convert.ts
+echo Done: "%OUTPUT_TS%"
+endlocal
